@@ -64,7 +64,7 @@ def doStudy():
 
     if args.savePic:
         logging.info("正在尝试抓取完成截图")
-        pic_success, pic_path = qcsh_service.downloadEndPic()
+        pic_success, pic_path, _ = qcsh_service.downloadEndPic()
         if pic_success:
             logging.info("抓取截图成功，已经保存到当前文件夹下的 %s", pic_path)
         else:

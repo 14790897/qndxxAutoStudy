@@ -99,9 +99,9 @@ class QcshService:
             os.makedirs(os.path.dirname(local_path), exist_ok=True)
             with open(local_path, "wb") as f:
                 f.write(response.content)
-            return True, local_path
+            return True, local_path, pic_url
         else:
-            return False, pic_url
+            return False, pic_url, None
 
     def updateStudyRecord(self, pid, student_number, subOrg=None):
         """

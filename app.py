@@ -69,11 +69,12 @@ def study():
         sub_org = last_study_info.get("subOrg")
 
     success, study_result = qcsh_service.updateStudyRecord(nid, card_no, sub_org)
+    pic_success, pic_path, pic_url = qcsh_service.downloadEndPic()
     if not success:
         return render_template("study.html", study_result="学习失败",
                                msg="学习失败，请重新扫码登录", data=study_result)
     return render_template("study.html", study_result="学习成功", msg="您已完成学习，可在微信“青年大学习”页面查看学习记录",
-                           data=study_result)
+                           data=study_result, pic_url=pic_url)
 
 
 if __name__ == '__main__':
